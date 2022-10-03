@@ -1,0 +1,20 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {},
+	"info": {
+		"title": "bmarket_backend",
+		"version": "1.0.0",
+		"license": {
+			"name": "MIT"
+		}
+	},
+	"paths": {},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}
