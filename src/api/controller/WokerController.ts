@@ -59,7 +59,7 @@ export default (app: Router) => {
       try {
         const workerService = Container.get(WorkerService);
         await workerService.deleteWorker({ _id });
-        return res.status(201).json("Successfuly removed");
+        return res.status(201).json("Successfully removed");
       } catch (e) {
         logger.error("🔥 error: %o", e);
         return next(e);

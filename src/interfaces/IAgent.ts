@@ -13,6 +13,7 @@ export interface IAgentInputDto {
   experience: object;
   companyName: string;
   iRating: number;
+  password: string;
 }
 
 export interface IAgent extends IAgentInputDto {

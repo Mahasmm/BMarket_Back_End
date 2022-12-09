@@ -7,6 +7,7 @@ export interface ICompanyInputDTO {
   contactNumber: String;
   contactEmail: String;
   projects: Object;
+  password: string;
 }
 
 export interface ICompany extends ICompanyInputDTO {

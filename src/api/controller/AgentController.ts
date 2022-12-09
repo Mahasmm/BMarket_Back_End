@@ -96,7 +96,7 @@ export default (app: Router) => {
         const agentId = req.params._id;
         const agentService = Container.get(AgentService);
         const bookings = await agentService.confirmBooking(
-          { agentId: agentId },
+          { _id: agentId },
           req.body as IBookInputDTO
         );
         return res.status(200).json(bookings);

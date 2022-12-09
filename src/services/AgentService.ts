@@ -1,6 +1,6 @@
 import { Inject, Service } from "typedi";
 import { IAgentInputDto } from "../interfaces/IAgent";
-
+import * as bcrypt from "bcrypt";
 @Service()
 export default class AgentService {
   constructor(
@@ -15,6 +15,9 @@ export default class AgentService {
     agentDto: IAgentInputDto
   ): Promise<{ AgentId: string }> {
     this.logger.silly("Creating manpower agent");
+    let salt = bcrypt.genSaltSync();
+    let encryptedPassword = bcrypt.hashSync(agentDto.password, salt);
+    agentDto.password = encryptedPassword;
     const manpowerAgent = await this.agentModel.create({
       ...agentDto,
     });

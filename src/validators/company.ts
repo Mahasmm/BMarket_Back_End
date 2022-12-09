@@ -8,6 +8,7 @@ const CompanyValidation = Joi.object({
   contactEmail: Joi.string(),
   projects: Joi.array(),
   rating: Joi.number(),
+  password: Joi.string(),
 });
 
 export default CompanyValidation;

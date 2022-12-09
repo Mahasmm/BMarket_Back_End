@@ -15,7 +15,7 @@ export default (app: Router) => {
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const companyId = req.params._id;
-        await projectValidation.validateAsync(req.body);
+        // await projectValidation.validateAsync(req.body);
         // console.log("result", result);
 
         const projectService = Container.get(ProjectService);

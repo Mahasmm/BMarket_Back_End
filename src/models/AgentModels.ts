@@ -26,6 +26,10 @@ const Manpower = new mongoose.Schema(
       type: String,
     },
 
+    password: {
+      type: String,
+    },
+
     vaccineReport: {
       type: String,
     },

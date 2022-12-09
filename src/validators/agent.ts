@@ -8,6 +8,7 @@ const AgentValidation = Joi.object({
   contactEmail: Joi.string(),
   vaccineReport: Joi.string(),
   rating: Joi.number(),
+  password: Joi.string().alphanum().min(5).max(12),
 });
 
 export default AgentValidation;

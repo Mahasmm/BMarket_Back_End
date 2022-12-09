@@ -2,6 +2,7 @@ import { IBook, IBookInputDTO } from "./../interfaces/IBook";
 import { Inject, Service } from "typedi";
 import { ICompanyInputDTO, ICompany } from "../interfaces/ICompany";
 import { FilterQuery, QueryOptions, UpdateQuery } from "mongoose";
+import * as bcrypt from "bcrypt";
 
 @Service()
 export default class CompanyService {
@@ -15,6 +16,9 @@ export default class CompanyService {
   public async createCompany(
     companyDto: ICompanyInputDTO
   ): Promise<{ companyId: string }> {
+    let salt = bcrypt.genSaltSync();
+    let encryptedPassword = bcrypt.hashSync(companyDto.password, salt);
+    companyDto.password = encryptedPassword;
     const company = await this.companyModel.create({
       ...companyDto,
     });
@@ -46,7 +50,7 @@ export default class CompanyService {
     const project = await this.companyModel
       .findOne(query, {
         projects: 1,
-        _id: 0,
+        // _id: 0,
       })
       .populate({
         path: "projects",

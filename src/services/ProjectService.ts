@@ -42,7 +42,16 @@ export default class ProjectService {
   public async getProject(
     query: FilterQuery<IProject>
   ): Promise<{ project: IProject }> {
-    const project = await this.projectModel.findById(query);
+    const project = await this.projectModel
+      .findById(query)
+      .populate({
+        path: "agents",
+        model: "IAgent",
+      })
+      .populate({
+        path: "booking",
+        model: "IBook",
+      });
 
     return { project: project };
   }
